@@ -2,6 +2,8 @@
 EJERCICIO DEL PROYECTO IMAGEN
 __________________________________
 
+CARGAR IMAGEN
+
 //Realizar un programa en Java que al presionar un botón pueda insertar una imagen de fondo a un JLabel.
 package cargarimagen;
 
@@ -50,4 +52,45 @@ VENTANA BOTON
         Img.setVisible(true); //para que la ventana sea visible
         Img.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//para cerrar el programa
     }
+    }
+---------------------------------------
+VENTANA IMAGEN
+
+
+    package cargarimagen;
+
+    import java.awt.Graphics;
+    import java.awt.Image;
+    import java.io.File;
+    import java.io.IOException;
+    import javax.imageio.ImageIO;
+    import javax.swing.*;
+
+    public class VentanaImagen extends JFrame{
+    public VentanaImagen(){
+        setTitle("Cargar una Imagen");
+        setSize(287, 287);
+        setLocationRelativeTo(null);
+        
+        LaminaImagen LaIm = new LaminaImagen();
+        add(LaIm);
+    }
+    }
+
+    class LaminaImagen extends JPanel{
+    
+    public void paintComponent (Graphics g) {
+    super.paintComponent(g);
+    //crear una variable tipo imagen
+                            //direccion de imagen
+    File LaImagen = new File("src/cargarimagen/kd7.png");
+    try{
+    imagen = ImageIO.read(LaImagen);//leer la imagen
+    }catch(IOException e){ //crear exepcion 
+            System.out.println("La imagen no ha sido encontrada"); //imprimir el error o exepcion
+    }
+    
+    g.drawImage(imagen, 5, 5, null); //dibujar la imagen
+    }
+     private Image imagen; // crear una variable tipo imagen
     }
