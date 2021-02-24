@@ -5,10 +5,8 @@ __________________________________
 //Realizar un programa en Java que al presionar un botón pueda insertar una imagen de fondo a un JLabel.
 package cargarimagen;
 
-import javax.swing.JFrame;
-
-public class CargarImagen {
-
+    import javax.swing.JFrame;
+    public class CargarImagen {
     public static void main(String[] args) {
        VentanaBoton btn = new VentanaBoton(); //llamar la clase boton 
        btn.setVisible(true); //hacrelo visible
